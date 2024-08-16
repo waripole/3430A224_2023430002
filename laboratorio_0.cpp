@@ -63,11 +63,16 @@ int main()
     
     std::cin.ignore(); // descartar la entrada del usuario dejada
 
+    std::string ejemplo = "Pan con queso"; //11 letras
+    std::cout<<"String ejemplo: "<<ejemplo <<" "<<std::endl;
+    long_strig(ejemplo);
+
     std::string input;
     std::cout<<"Ingrese una cadena de texto: "<<std::endl;
     std::getline(std::cin, input); //leer todas las palabras (en caso de)
 
     long_strig(input);
+
 
     return 0;
 }
