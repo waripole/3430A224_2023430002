@@ -1,18 +1,18 @@
 #include <iostream>
 #include <string>
-#include <stdio.h>
+
 
 void es_par_ono(int num)
 {
     if(num%2==0)
     {
         //printf("El numero es par");
-        std::cout <<"El numero "<< num <<" es par";
+        std::cout <<"El numero "<< num <<" es par"<<std::endl;
     }
     else
     {
         //printf("El numero es impar");
-        std::cout <<"El numero "<< num <<" es IMpar";
+        std::cout <<"El numero "<< num <<" es impar"<<std::endl;
     }
 
 }
@@ -38,16 +38,17 @@ int long_strig(const std::string& str)
     // Restarle al total el número de espacios
     int longitud_string = longitud - espacios;
 
-    std::cout<<"Longitud string: "<<longitud_string<<"";
+    std::cout<<"Longitud string: "<<longitud_string<<""<<std::endl;
 
-    return 0;
+    return longitud_string;
 }
+
 
 int main()
 {
     int num;
 
-    std::cout<<"Ingrese un numero entero: "; // Escribir pregunta
+    std::cout<<"Ingrese un numero entero: "<<std::endl; // Escribir pregunta
     std::cin>> num; // Leer respuesta
 
     es_par_ono(num);
@@ -60,14 +61,13 @@ int main()
         es_par_ono(i);
     }
     
-    char input[100]; //arreglo de caracteres
+    std::cin.ignore(); // descartar la entrada del usuario dejada
 
-    std::cout<<"Ingrese una cadena de texto: ";
-    std::cin>> input;
-
+    std::string input;
+    std::cout<<"Ingrese una cadena de texto: "<<std::endl;
+    std::getline(std::cin, input); //leer todas las palabras (en caso de)
 
     long_strig(input);
-
 
     return 0;
 }
