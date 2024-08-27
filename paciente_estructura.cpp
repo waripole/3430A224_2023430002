@@ -12,11 +12,11 @@ struct Paciente {
 };
 
 int main(){
-    //printf(); - cout
 
     // Arreglo de 3 objetos tipo paciente
     Paciente paciente[3];
 
+    // Inicializar el arreglo
     paciente[0].nombre = "Ian";
     paciente[0].edad = 15;
     paciente[0].peso = 60;
@@ -32,6 +32,7 @@ int main(){
     paciente[2].peso = 77;
     paciente[2].altura = 1.85;
 
+    // Acceder y recorrer el arreglo e imprimir datos pacientes
     for(int i = 0; i < 3; i++){
         std::cout<<"Nombre: " << paciente[i].nombre <<std::endl;
         std::cout<<"Edad: "<< paciente[i].edad <<std::endl;
