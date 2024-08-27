@@ -1,0 +1,1 @@
+// 2 los datos de la etructura a un arreglo luego en el siguiente arhchivo de paciente dlist pasarlos a una listaa
