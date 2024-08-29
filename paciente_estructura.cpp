@@ -1,10 +1,11 @@
 // 1
 #include <iostream>
 
+using namespace std;
 
 // Definir estructura paciente
 struct Paciente {
-    std::string nombre;
+    string nombre;
     int edad;
     int peso;
     float altura;
@@ -13,33 +14,34 @@ struct Paciente {
 
 int main(){
 
-    // Arreglo de 3 objetos tipo paciente
-    Paciente paciente[3];
+    cout<< "Lista de pacientes:"<<::endl;
 
-    // Inicializar el arreglo
-    paciente[0].nombre = "Ian";
-    paciente[0].edad = 15;
-    paciente[0].peso = 60;
-    paciente[0].altura = 1.71;
+    Paciente paciente1;
+    paciente1.nombre = "Ian";
+    paciente1.edad = 15;
+    paciente1.peso = 60;
+    paciente1.altura = 1.71;
 
-    paciente[1].nombre = "Gabriela";
-    paciente[1].edad = 25;
-    paciente[1].peso = 65;
-    paciente[1].altura = 1.70;
+    Paciente paciente2;
+    paciente2.nombre = "Gabriela";
+    paciente2.edad = 20;
+    paciente2.peso = 65;
+    paciente2.altura = 1.70;
 
-    paciente[2].nombre = "Florencio";
-    paciente[2].edad = 50;
-    paciente[2].peso = 77;
-    paciente[2].altura = 1.85;
+    Paciente paciente3;
+    paciente3.nombre = "Florencio";
+    paciente3.edad = 50;
+    paciente3.peso = 77;
+    paciente3.altura = 1.85;
 
-    // Acceder y recorrer el arreglo e imprimir datos pacientes
-    for(int i = 0; i < 3; i++){
-        std::cout<<"Nombre: " << paciente[i].nombre <<std::endl;
-        std::cout<<"Edad: "<< paciente[i].edad <<std::endl;
-        std::cout<<"Peso: "<< paciente[i].peso <<std::endl;
-        std::cout<<"Altura: "<< paciente[i].altura <<std::endl;
-        std::cout<<std::endl;
-    }
+
+    // Imprimir pacientes
+    cout<<"Nombre: "<<paciente1.nombre <<".\n"<<"Edad: "<<paciente1.edad<<".\n"<<"Peso: "<<paciente1.peso<<".\n"<<"Altura: "<<paciente1.altura<<".\n"<<::endl;
+    cout<<""<<::endl;
+    cout<<"Nombre: "<<paciente2.nombre <<".\n"<<"Edad: "<<paciente2.edad<<".\n"<<"Peso: "<<paciente2.peso<<".\n"<<"Altura: "<<paciente2.altura<<".\n"<<::endl;
+    cout<<""<<::endl;
+    cout<<"Nombre: "<<paciente3.nombre <<".\n"<<"Edad: "<<paciente3.edad<<".\n"<<"Peso: "<<paciente3.peso<<".\n"<<"Altura: "<<paciente3.altura<<".\n"<<::endl;
+
 
     return 0;
 }
