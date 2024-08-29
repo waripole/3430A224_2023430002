@@ -1,4 +1,4 @@
-// 3 as lissta, aca e deben agregar
+// 3
 #include <iostream>
 //#include <string>
 
@@ -11,7 +11,6 @@ struct Paciente {
     Paciente* next; // puntero para la siguiente persona
 
 };
-
 
 
 // Función para agregar pacientes a la lista
@@ -32,18 +31,39 @@ void imprimirPaciente(const Paciente* head){
     const Paciente* actual = head;
 
     while(actual != nullptr){
-        std::cout<<"Paciente actual -------------"<<std::endl;
+        std::cout<<"**Paciente actual:"<<std::endl;
 
         std::cout<<"Nombre: " << actual -> nombre <<std::endl;
         std::cout<<"Edad: "<< actual -> edad <<std::endl;
         std::cout<<"Peso: "<< actual -> peso <<std::endl;
         std::cout<<"Altura: "<< actual -> altura <<std::endl;
-
+        std::cout<<""<<std::endl;
         actual = actual->next;
     }
 }
 
+// Función para eliminar paciente
+void eliminarPaciente(Paciente*& head, const std::string& nombre){
 
+    Paciente* actual = head;
+    Paciente* anterior = nullptr;
+
+    while(actual != nullptr && actual->nombre != nombre){
+        anterior = actual;
+        actual = actual ->next;
+    }
+
+    if(actual != nullptr){
+        
+        if(anterior == nullptr){
+            head = actual->next;
+        } else{
+            anterior->next = actual->next;
+        }
+
+        delete actual;
+    }
+}
 
 int main(){
 
@@ -54,42 +74,24 @@ int main(){
     agregarPaciente(head, "Gabriela", 25, 65, 1.70);
     agregarPaciente(head, "Florencio", 50, 77, 1.85);
 
+
+    std::cout<<""<<std::endl;
+    std::cout<<"Imprimir lista de pacientes ---------"<<std::endl;
+    imprimirPaciente(head);
+
+    std::cout<<""<<std::endl;
+    std::cout<<"Accion de eliminar paciente ---------"<<std::endl;
+    eliminarPaciente(head, "Florencio");
+
+    imprimirPaciente(head);
+
+    std::cout<<""<<std::endl;
+    std::cout<<"Accion de agregar paciente"<<std::endl;
+    agregarPaciente(head, "Fernanda", 20, 60, 1.72);
+
     imprimirPaciente(head);
 
 
-/*
-    Paciente* paciente1 = new Paciente();
-    paciente1-> nombre = "Ian";
-    paciente1-> edad = 15;
-    paciente1 -> peso = 60;
-    paciente1 -> altura = 1.71;
-
-    Paciente* paciente2 = new Paciente();
-    paciente2-> nombre = "Gabriela";
-    paciente2-> edad = 25;
-    paciente2 -> peso = 65;
-    paciente2 -> altura = 1.70;
-
-    Paciente* paciente3 = new Paciente();
-    paciente3-> nombre = "Florencio";
-    paciente3-> edad = 50;
-    paciente3 -> peso = 77;
-    paciente3 -> altura = 1.85;
-
-    // Linkear los pacientess
-    //maybe esto en un ciclo for
-    paciente1 -> next = paciente2;
-    paciente2 -> next = paciente3;
-
-
-    // Acceder a la lista linkeada
-    Paciente* current = paciente1;
-
-    while(current != nullptr){
-        std::cout<< current->nombre << " es paciente" << std::endl;
-        current = current ->next;
-    }
-*/
 
     return 0;
 }
