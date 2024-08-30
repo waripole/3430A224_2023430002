@@ -9,6 +9,11 @@
 #include <iostream>
 #include <string>
 
+//importar librerias para leer e archivo cvs
+#include <sstream>
+#include <fstream>
+
+
 // Definir estructura paciente
 struct Paciente {
     std::string nombre;
@@ -65,10 +70,10 @@ void imprimirPaciente(const Paciente* head){
     while(actual != nullptr){
         std::cout<<"Paciente actual:"<<std::endl;
 
-        std::cout<<"Nombre: " << actual -> nombre <<std::endl;
-        std::cout<<"Edad: "<< actual -> edad <<std::endl;
-        std::cout<<"Peso: "<< actual -> peso <<std::endl;
-        std::cout<<"Altura: "<< actual -> altura <<std::endl;
+        std::cout<<"Nombre: " << actual -> nombre << "." <<std::endl;
+        std::cout<<"Edad: "<< actual -> edad << " año/s." <<std::endl;
+        std::cout<<"Peso: "<< actual -> peso << " kg." <<std::endl;
+        std::cout<<"Altura: "<< actual -> altura << " m." <<std::endl;
         std::cout<<""<<std::endl;
         actual = actual->next;
     }
@@ -94,7 +99,7 @@ float edadPromedio(Paciente* head){
 
     float promedio_edad = suma_edades/cant_pacientes;
 
-    std::cout<<"Edad promedio del grupo: "<< promedio_edad << "." <<std::endl;
+    std::cout<<"[Edad promedio del grupo: "<< promedio_edad << ".\n]" <<std::endl;
     return promedio_edad;
 
 }
@@ -118,7 +123,7 @@ float pesoPromedio(Paciente* head){
 
     float peso_promedio = suma_peso/cant_pacientes;
 
-    std::cout<<"Peso promedio del grupo: "<< peso_promedio <<"."<<std::endl;
+    std::cout<<"[Peso promedio del grupo: "<< peso_promedio <<".\n]"<<std::endl;
     return peso_promedio;
 
 }
@@ -143,6 +148,45 @@ void IMC(Paciente*head){
 }
 
 
+void leerArchivoCVS(const std::string& nombreArchivo, Paciente*& head){
+
+    std::ifstream archivo(nombreArchivo);
+    std::string linea;
+
+    // Ignorar primera linea del cvs
+    getline(archivo, linea);
+
+    // Leer c/u linea del CVS
+    while(getline(archivo, linea)){
+
+        std::stringstream ss(linea);
+        
+        std::string nombre;
+        std::string edad_cvs;
+        std::string peso_cvs;
+        std::string altura_cvs;
+        
+        getline(ss, nombre, ',');
+        getline(ss, edad_cvs, ',');
+        getline(ss, peso_cvs, ',');
+        getline(ss, altura_cvs, ',');
+
+        //Corregir el tipo de dato (int/float)
+        int edad = stoi(edad_cvs);
+        int peso = stoi(peso_cvs);
+        float altura = stof(altura_cvs);
+
+        // Agregar paciente de la linea a la lista
+        agregarPaciente(head, nombre, edad, peso, altura);
+
+    }
+
+    archivo.close();
+
+}
+
+
+
 int main(){
 
     Paciente* head = nullptr;
@@ -154,10 +198,11 @@ int main(){
         std::cout<<"1. Agregar paciente \n"<<std::endl;
         std::cout<<"2. Eliminar paciente \n"<<std::endl;            
         std::cout<<"3. Imprimir lista de pacientes \n"<<std::endl;
-        std::cout<<"4. Calcular IMC pacientes"<<std::endl;
+        std::cout<<"4. Calcular IMC pacientes\n"<<std::endl;
         std::cout<<"5. Calcular EDAD promedio pacientes \n"<<std::endl;
         std::cout<<"6. Calcular PESO promedio pacientes \n"<<std::endl;
-        std::cout<<"7. Salir \n"<<std::endl;
+        std::cout<<"7. Leer datos archivo CVS \n"<<std::endl;
+        std::cout<<"8. Salir \n"<<std::endl;
 
         std::cin>> eleccion;
 
@@ -233,6 +278,13 @@ int main(){
             }
 
             case '7':{
+
+                leerArchivoCVS("datos.csv", head);
+
+                break;
+            }
+
+            case '8':{
 
                 while(head != nullptr){
 
