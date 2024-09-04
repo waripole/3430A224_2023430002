@@ -455,6 +455,7 @@ Paciente* mayorPuntaje(Paciente*& head){
 
 // OJO BBBBBBBBBBBBBIDEO DE YUTU
 // https://www.youtube.com/watch?v=bRK80WxuUF0
+/*
 void bubbleSort(Paciente*& head){
     
     bool intercambio = true;
@@ -482,8 +483,8 @@ void bubbleSort(Paciente*& head){
 
     }
 
-
 }
+*/
 
 void ordenarPuntajes(Paciente*& head){
     Paciente* nuevaCabeza = nullptr;
@@ -497,6 +498,7 @@ void ordenarPuntajes(Paciente*& head){
     head = nuevaCabeza;
 }
 
+// sacar a los pacientes sin diaetes ni prediabetes AC1 normalito
 
 int main(){
 
