@@ -271,14 +271,17 @@ void calcularPuntajes(Paciente* head){
 
 // Copiar la lista de pacientes para ordenarlos e ir modificando esta para la cola
 Paciente* copiarListaa(Paciente* head){
+    // VEr si la lista está vacía
     if(head == nullptr){
         return nullptr;
     }
+    // Inicializar los punteros para la lista copiada
     Paciente* nuevoHead = nullptr;
     Paciente* actualOriginal = head;
     Paciente* actualNuevo = nullptr;
+    // Recorrer la lista original para copiar los nodos
     while(actualOriginal != nullptr){
-        // Copiar el nodo
+        // novoPAciente -> datos del paciente actual para copiarlo
         Paciente* novoPaciente = new Paciente(*actualOriginal); 
         novoPaciente -> next = nullptr;
         if(nuevoHead == nullptr){
@@ -294,8 +297,9 @@ Paciente* copiarListaa(Paciente* head){
     return nuevoHead;
 }
 
-// Función que devuelve el paciente con mayor puntaje
+// Función que devuelve el paciente con mayor puntaje y tmb lo elimina
 Paciente* puntajeMayor(Paciente*& head){
+    // Ver si esq está vacia
     if(head == nullptr){
         return nullptr;
     }
@@ -319,12 +323,13 @@ Paciente* puntajeMayor(Paciente*& head){
         head = mayor -> next;
     }
     mayor -> next = nullptr;
+    // Devolver al con mayor puntaje
     return mayor;    
 }
 
-
+// Función para ordenar los paceintes de acuerdo de su puntaje (de mayor a menor)
 void ordenarPuntajes(Paciente* headOriginal){
-    // Se trabaja con una copia de la lista para facilitar la manipulación de los datos
+    // Se trabaja/copia con una copia de la lista para facilitar la manipulación de los datos
     Paciente* headCopia = copiarListaa(headOriginal);
     Paciente* nuevoHead = nullptr;
     Paciente* mayor;
@@ -470,7 +475,7 @@ int main(){
                 break;
             }
             case 13:{
-                imprimirCola(head);
+                ordenarPuntajes(head);
                 break;
             }
             case 14:{
@@ -492,4 +497,4 @@ int main(){
 
         }
     }
-} // No sé pq sale un error de corchetes aquí si están todos cerrados noooooooooooooooooooooooooooooooooo
+}
