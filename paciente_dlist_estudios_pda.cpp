@@ -486,8 +486,10 @@ int main(){
                 return 0;
             }
             default:{
-            std::cout << "Eleccion invalida. Ingrese otra opción.";
+                std::cout << "Eleccion invalida. Ingrese otra opción."<<std::endl;
+                break;      
             }
+
         }
     }
-}
+} // No sé pq sale un error de corchetes aquí si están todos cerrados noooooooooooooooooooooooooooooooooo
