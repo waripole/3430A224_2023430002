@@ -17,3 +17,5 @@ Para gestionar el ingreso y salida de contenedores se utilizará la siguiente l�
             agregarán a la siguiente pila no llena.
         - Luego de cada push() de un contenedor movido a una pila nueva, se chequea si la pila está llena o no para
         determinar si se le pueden seguir agregando elementos contenedor o no.
+
+miau
