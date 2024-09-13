@@ -1,5 +1,18 @@
+**README EJERCICIO N°2**
+***
+El ingreso de contenedores al puerto la realiza el usuario, ingresando primeramente los parámetros de la cantidad de pilas (parámetro **m**) y la cantidad de contenedores posibles de acoplar en cada una de las pilas (parámetro **n**).
 
-Para gestionar el ingreso y salida de contenedores en el ejercicio N°2 se utilizará la siguiente lógica automática:
+Luego, las opciones para la manipulación de contenedores son:
+* Agregar contenedor [1]
+* Remover contenedor [2]
+* Ver orden          [3]
+
+Además de una opción para salir del programa:
+* Salir              [0]
+
+
+***
+Para gestionar el ingreso y salida de contenedores se utilizará la siguiente lógica automática:
 
     Ingreso:
         - Checar si la pila está llena o no
