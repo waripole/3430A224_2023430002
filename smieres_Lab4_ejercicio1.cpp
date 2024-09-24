@@ -83,7 +83,7 @@ private:
     */
 
 
-    // nodo màss pequeño
+    // nodo màss pequeño en la subrama (para usar en el eliminarNodo)
     Node* nodoPetit(Node* node) {
         Node* actual = node;
         while (actual && actual->left != nullptr) {
@@ -92,7 +92,7 @@ private:
         return actual;
     }
 
-
+    //             puntero al nodo / nodo a eliminar
     Node* eliminarNodo(Node* node, int data){
         if(node == nullptr){
             return node;
@@ -103,18 +103,21 @@ private:
         } else if(data > node->info){
             node->right = eliminarNodo(node->right, data);
         } else{
-            // nodo encontrado
+            // si el left es nullo, entonces tiene 1 hijo a la derecha o ninguno
             if(node->left == nullptr){
                 Node* temp = node->right;
                 delete node;
                 return temp;
+                
+            // si el right es nulo, entonces tiene un hijo a la izquierda
             } else if(node->right ==nullptr){
                 Node* temp = node->left;
                 delete node;
                 return temp;
             }
-
+            //se busca el menor para determinar cual va a "reemplazar" en lugar del eliminado
             Node* temp = nodoPetit(node->right);
+            //valor del nodo actual se reemplaza por el nodoPetit
             node->info = temp -> info;
             node->right = eliminarNodo(node->right, temp->info);
         }
@@ -165,7 +168,7 @@ public:
         insert(nodoInsertar);
     }
 
-// -----------------------------------------------------
+// ----------------------------------------------------
 
     // Constructor de la clase Àrbol
     Arbol(Node* node) : root(node) {}
@@ -229,8 +232,8 @@ int main() {
 
     while(true){
         std::cout<<"Insertar elementos                       [1]\n"<<std::endl;
-        std::cout<<"Eliminar elemento 65                     [2]\n"<<std::endl;
-        std::cout<<"Modificar elemneto 52                    [3]\n"<<std::endl;
+        std::cout<<"Eliminar elemento (22)                   [2]\n"<<std::endl;
+        std::cout<<"Modificar elemneto (65->52)              [3]\n"<<std::endl;
         std::cout<<"Mostrar contenido Pre / In / Post order  [4]\n"<<std::endl;
         std::cout<<"Generar grafo (Linux)                    [5]\n"<<std::endl;
         std::cout<<"Salir                                    [0]\n"<<std::endl;
@@ -276,8 +279,7 @@ int main() {
                 }
                 case 2:{
                     std::cout<<"Opcion [2] - Eliminar elemento\n"<<std::endl;
-                    //arbol.eliminarNodo();
-                    cout<<"nadi que se hace con el de modificar altiro";
+                    arbol.eliminar(22);
                     std::cout<<"\n"<<std::endl;
                     break;
                 }
