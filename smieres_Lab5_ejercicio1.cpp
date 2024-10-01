@@ -23,18 +23,28 @@ typedef Nodo* Arbol;
 
 /* Insertar en arbol ordenado: */
 void Insertar(Arbol* a, int dat);
+
 /* Borrar un elemento: */
 void Borrar(Arbol* a, int dat);
+
 /* Funcion de busqueda: */
 int Buscar(Arbol a, int dat);
+
+//agregar el de Modificar  ******************!!!!!
+int Modificar(Arbol a, int dat);
+
 /* Comprobar si es un nodo hoja: */
 int EsHoja(pNodo r);
+
 /* Contar numero de nodos: */
 int NumeroNodos(Arbol a, int* c);
+
 /* Calcular la altura de un arbol: */
 int AlturaArbol(Arbol a, int* altura);
+
 /* Calcular altura de un dato: */
 int Altura(Arbol a, int dat);
+
 /* Generar salida para Graphiz */
 void PreOrden(Arbol, std::ofstream &fp);
 
@@ -65,11 +75,31 @@ int main() {
 
         switch (opcion) {
             case 1:
+                std::cout << "Opcion [1] - Ingresar";
                 std::cout << "Ingrese su numero: ";
                 std::cin >> valor;
                 Insertar(&ArbolInt, valor);
                 break;
+            case 2:
+                std::cout << "Opcion [2] - Buscar";
+                std::cout <<"Ingrese su numero: ";
+                std::cin >> valor;
+                //Buscar(&ArbolInt, valor); //si es que està o no??
+            case 3:
+                std::cout << "Opcion [3] - Borrar";
+                std::cout <<"Ingrese su numero: ";
+                std::cin >> valor;
+                //Borrar(&ArbolInt, valor);
+            case 4:
+                std::cout << "Opcion [4] - Modificar";
+                std::cout<<"Ingrese su numero a cambiar: "; //ojo con que no estè y estè bn escrito - ahhh pero no paràmetros de entrada mmm
+                std::cin >> valor;
+
+                std::cout<<"Ingrese nuevo valor: ";
+                std::cin >> valor2; //maybe this is not really necesario mmmmm (por lo de no valores de entrada)
+                //Modificar()
             case 5:
+                std::cout << "Opcion [5] - Generar Grafo";
                 GenerarGrafo(ArbolInt);
                 break;
         }
@@ -145,6 +175,22 @@ void Insertar(Arbol* a, int dat) {
         Equilibrar(a, padre, DERECHO, TRUE);
     }
 }
+
+//----------------------------------------------------
+
+void Buscar(){
+    //holo
+}
+
+void Borrar(){
+    //hola
+}
+
+void modificarElemento(){
+    //xao
+}
+
+//----------------------------------------------------
 
 void Equilibrar(Arbol* a, pNodo nodo, int rama, int nuevo) {
     int salir = FALSE;
