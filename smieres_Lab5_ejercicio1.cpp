@@ -28,7 +28,7 @@ void Insertar(Arbol* a, int dat);
 void Borrar(Arbol* a, int dat);
 
 /* Funcion de busqueda: */
-int Buscar(Arbol a, int dat);
+bool Buscar(Arbol a, int dat);
 
 //agregar el de Modificar  ******************!!!!!
 int Modificar(Arbol a, int dat);
@@ -70,38 +70,53 @@ int main() {
 
     while (opcion != 6) {
         MenuPrincipal();
-        std::cout << "Ingrese su opcion: ";
+        std::cout << "Ingrese su opcion: \n";
         std::cin >> opcion;
 
         switch (opcion) {
-            case 1:
-                std::cout << "Opcion [1] - Ingresar";
-                std::cout << "Ingrese su numero: ";
+            case 1:{
+                std::cout << "Opcion [1] - Ingresar\n";
+                std::cout << "Ingrese su numero: \n";
                 std::cin >> valor;
                 Insertar(&ArbolInt, valor);
-                break;
-            case 2:
-                std::cout << "Opcion [2] - Buscar";
-                std::cout <<"Ingrese su numero: ";
-                std::cin >> valor;
-                //Buscar(&ArbolInt, valor); //si es que està o no??
-            case 3:
-                std::cout << "Opcion [3] - Borrar";
-                std::cout <<"Ingrese su numero: ";
-                std::cin >> valor;
-                //Borrar(&ArbolInt, valor);
-            case 4:
-                std::cout << "Opcion [4] - Modificar";
-                std::cout<<"Ingrese su numero a cambiar: "; //ojo con que no estè y estè bn escrito - ahhh pero no paràmetros de entrada mmm
-                std::cin >> valor;
+                break;                
+            }
+            case 2:{
+                std::cout << "Opcion [2] - Buscar\n";
+                int valor = 56;
+                if(Buscar(ArbolInt, valor) == true){
+                    std::cout<<"\nEl elemento ["<<valor<<"] se encuentra en el arbol.";
+                }else{
+                    std::cout<<"\nEl elemento ["<<valor<<"] NO se encuentra en el arbol.";
+                }
 
-                std::cout<<"Ingrese nuevo valor: ";
-                std::cin >> valor2; //maybe this is not really necesario mmmmm (por lo de no valores de entrada)
-                //Modificar()
-            case 5:
-                std::cout << "Opcion [5] - Generar Grafo";
+                int valor2 = 5;
+                if(Buscar(ArbolInt, valor2) == true){
+                    std::cout<<"\nEl elemento ["<<valor2<<"] se encuentra en el arbol.";
+                }else{
+                    std::cout<<"\nEl elemento ["<<valor2<<"] NO se encuentra en el arbol.";
+                }
+            }
+            case 3:{
+                std::cout << "Opcion [3] - Borrar\n";
+
+                int valor = 26;
+
+                //Borrar(&ArbolInt, valor);                
+            }
+            case 4:{
+                std::cout << "Opcion [4] - Modificar\n";
+
+                int valor1 = 9;
+                int valor2 = 15;
+
+                //Modificar(&ArbolInt, valor1, valor2);               
+            }
+            case 5:{
+                std::cout << "Opcion [5] - Generar Grafo\n";
                 GenerarGrafo(ArbolInt);
-                break;
+                break;                
+            }
         }
     }
 
@@ -178,16 +193,33 @@ void Insertar(Arbol* a, int dat) {
 
 //----------------------------------------------------
 
-void Buscar(){
-    //holo
+bool Buscar(Arbol node, int n){
+    if(node ==nullptr){
+        return false;
+    }
+    else if(node->dato==n){
+        return true;
+    }
+    else if(n < node->dato){
+        return Buscar(node->izquierdo,n); //menor - recorrer subarbol izq
+    } else{
+        return Buscar(node->derecho,n); //mayor - recorrer subarbol der
+    }
+
 }
 
+
+
 void Borrar(){
-    //hola
+    //aùn no implementada
+
+    //aplicar el equilibrar
 }
 
 void modificarElemento(){
-    //xao
+    //aùn no implementada
+
+    //aplicar el equilibrar
 }
 
 //----------------------------------------------------
