@@ -223,23 +223,31 @@ bool Borrar(Arbol* a, int dat){
     pNodo padre = NULL;
     pNodo actual = *a;
 
-    //1
+    //1 si el nodo aactual no es nulo then...
     if(actual != NULL){
-        //1.1
+        //1.1 dato a borrar es menor al nodo actual
         if(dat < actual->dato){
             Borrar(&(actual->izquierdo), dat);
+
+            //dato a borrar es mayor al nodo actual
         }else if(dat > actual->dato){
             Borrar(&(actual->derecho), dat);
         }else{
+            //nodo pillado
+            //si el nodo a borrar corresponde al nodo actual se elimina
             pNodo nodo_i = actual;
 
+            //Si el nodo a eliminar NO tiene hijo DERecho, lo reemplaza el hijo IZQ
             if(nodo_i->derecho == NULL){
                 pNodo temp = actual;
                 *a = actual->izquierdo;
+
+                //si no tiene hijo IZQ, lo reemplaza su hijo DERecho
             }else if(nodo_i->izquierdo == NULL){
                 pNodo temp = actual;
                 *a = actual->derecho;   
             }else{
+                //si tiene hijos tanto en DER como IZQ, se busca el nodo más grande del subarbol IZQQ
                 pNodo aux = actual->izquierdo;
                 pNodo aux1;
 
@@ -248,8 +256,10 @@ bool Borrar(Arbol* a, int dat){
                     aux = aux->derecho;
                 };
 
+                //se reemplaza el dato del nodo actual con el nodo reemplazante
                 actual->dato = aux->dato;
 
+                //ajustar los punteros
                 if(aux1 == aux){
                     aux1->derecho = aux->izquierdo;
                 }else{
@@ -262,9 +272,11 @@ bool Borrar(Arbol* a, int dat){
             }
         }
     }else{
+        //si eele nodo actual es nulo, se imprime el mensaje de que el dato no se encuentraa en el arbol
         std::cout<<"La información no se encuentra en el arbol";
         return FALSE;
     }
+    //retorna true si se eliminó el nodo correctamente
     return TRUE;
 }
 
