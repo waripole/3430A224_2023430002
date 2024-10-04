@@ -1,5 +1,3 @@
-// implementar funciones de Eliminar y Modificar
-
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -25,12 +23,12 @@ typedef Nodo* Arbol;
 void Insertar(Arbol* a, int dat);
 
 /* Borrar un elemento: */
-void Borrar(Arbol* a, int dat);
+bool Borrar(Arbol* a, int dat);
 
 /* Funcion de busqueda: */
 bool Buscar(Arbol a, int dat);
 
-//agregar el de Modificar  ******************!!!!!
+//agregar el de Modificar
 int Modificar(Arbol a, int dat);
 
 /* Comprobar si es un nodo hoja: */
@@ -76,41 +74,53 @@ int main() {
         switch (opcion) {
             case 1:{
                 std::cout << "Opcion [1] - Ingresar\n";
-                std::cout << "Ingrese su numero: \n";
-                std::cin >> valor;
-                Insertar(&ArbolInt, valor);
+                Insertar(&ArbolInt, 60);
+                Insertar(&ArbolInt, 40);
+                Insertar(&ArbolInt, 90);
+                Insertar(&ArbolInt, 45);
+                Insertar(&ArbolInt, 75);
+                Insertar(&ArbolInt, 97);
+                Insertar(&ArbolInt, 68);
+
                 break;                
             }
             case 2:{
                 std::cout << "Opcion [2] - Buscar\n";
-                int valor = 56;
+                int valor = 1;
                 if(Buscar(ArbolInt, valor) == true){
-                    std::cout<<"\nEl elemento ["<<valor<<"] se encuentra en el arbol.";
+                    std::cout<<"\nEl elemento ["<<valor<<"] se encuentra en el arbol.\n";
                 }else{
-                    std::cout<<"\nEl elemento ["<<valor<<"] NO se encuentra en el arbol.";
+                    std::cout<<"\nEl elemento ["<<valor<<"] NO se encuentra en el arbol.\n";
                 }
 
-                int valor2 = 5;
+                int valor2 = 75;
                 if(Buscar(ArbolInt, valor2) == true){
-                    std::cout<<"\nEl elemento ["<<valor2<<"] se encuentra en el arbol.";
+                    std::cout<<"\nEl elemento ["<<valor2<<"] se encuentra en el arbol.\n";
                 }else{
-                    std::cout<<"\nEl elemento ["<<valor2<<"] NO se encuentra en el arbol.";
+                    std::cout<<"\nEl elemento ["<<valor2<<"] NO se encuentra en el arbol.\n";
                 }
+                break;
             }
             case 3:{
                 std::cout << "Opcion [3] - Borrar\n";
-
-                int valor = 26;
-
-                //Borrar(&ArbolInt, valor);                
+                //Nodo* nodo;
+                //bool bo = false;
+                int valor = 45;
+                Borrar(&ArbolInt, valor);
+                break;          
             }
             case 4:{
                 std::cout << "Opcion [4] - Modificar\n";
 
-                int valor1 = 9;
-                int valor2 = 15;
+                int valor = 68;
+                int valor_add = 35;
+                bool bo = false;
+                //Modificar(&ArbolInt, valor1, valor2);
+                //eliminar y agregar un elementos
+                Borrar(&ArbolInt, valor);
+                Insertar(&ArbolInt, valor_add);
 
-                //Modificar(&ArbolInt, valor1, valor2);               
+                break;           
             }
             case 5:{
                 std::cout << "Opcion [5] - Generar Grafo\n";
@@ -129,7 +139,7 @@ void GenerarGrafo(Arbol ArbolInt) {
     std::ofstream fp("grafo.txt");
 
     fp << "digraph G {\n";
-    fp << "node [style=filled fillcolor=yellow];\n";
+    fp << "node [style=filled fillcolor=green];\n";
 
     fp << "nullraiz [shape=point];\n";
     fp << "nullraiz->" << ArbolInt->dato << " [label=" << ArbolInt->FE << "];\n";
@@ -147,7 +157,7 @@ void MenuPrincipal() {
     std::cout << "<1> Ingresar numero\n";
     std::cout << "<2> Busqueda numero\n";
     std::cout << "<3> Eliminar numero\n";
-    std::cout << "<4> Modificar elemento ingresado\n";
+    std::cout << "<4> Modificar\n";
     std::cout << "<5> Generar Grafo\n";
     std::cout << "<6> Salir\n";
     std::cout << "\n";
@@ -193,6 +203,7 @@ void Insertar(Arbol* a, int dat) {
 
 //----------------------------------------------------
 
+
 bool Buscar(Arbol node, int n){
     if(node ==nullptr){
         return false;
@@ -205,22 +216,59 @@ bool Buscar(Arbol node, int n){
     } else{
         return Buscar(node->derecho,n); //mayor - recorrer subarbol der
     }
-
 }
 
 
+bool Borrar(Arbol* a, int dat){
+    pNodo padre = NULL;
+    pNodo actual = *a;
 
-void Borrar(){
-    //aùn no implementada
+    //1
+    if(actual != NULL){
+        //1.1
+        if(dat < actual->dato){
+            Borrar(&(actual->izquierdo), dat);
+        }else if(dat > actual->dato){
+            Borrar(&(actual->derecho), dat);
+        }else{
+            pNodo nodo_i = actual;
 
-    //aplicar el equilibrar
+            if(nodo_i->derecho == NULL){
+                pNodo temp = actual;
+                *a = actual->izquierdo;
+            }else if(nodo_i->izquierdo == NULL){
+                pNodo temp = actual;
+                *a = actual->derecho;   
+            }else{
+                pNodo aux = actual->izquierdo;
+                pNodo aux1;
+
+                while(aux->derecho != NULL){
+                    aux1 = aux;
+                    aux = aux->derecho;
+                };
+
+                actual->dato = aux->dato;
+
+                if(aux1 == aux){
+                    aux1->derecho = aux->izquierdo;
+                }else{
+                    aux1->izquierdo = aux->izquierdo;
+                }
+
+                Podar(&aux);
+
+                return TRUE;
+            }
+        }
+    }else{
+        std::cout<<"La información no se encuentra en el arbol";
+        return FALSE;
+    }
+    return TRUE;
 }
 
-void modificarElemento(){
-    //aùn no implementada
 
-    //aplicar el equilibrar
-}
 
 //----------------------------------------------------
 
@@ -406,11 +454,15 @@ void RotaDerechaDerecha(Arbol* a, pNodo nodo) {
 
 void PreOrden(Arbol a, std::ofstream &fp) {
     if (a) {
-        fp << a->dato << ";\n";
+        //fp << a->dato << ";\n";
+        fp << a->dato << " [label=\"" << a->dato <<"(FE: " << a->FE << ")\"];\n";
+
+        //hijo hacia el lado izquierdo
         if (a->izquierdo) {
             fp << a->dato << "->" << a->izquierdo->dato << ";\n";
             PreOrden(a->izquierdo, fp);
         }
+        //hijo hacia el lado derecho
         if (a->derecho) {
             fp << a->dato << "->" << a->derecho->dato << ";\n";
             PreOrden(a->derecho, fp);
