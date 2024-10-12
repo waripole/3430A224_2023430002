@@ -2,8 +2,6 @@
 #include <fstream>
 #include <stdlib.h>   // ejemplo_matriz
 #include <cstring>    // Para manejo de cadenas
-#include <cmath> // para uso del floor() (ya no lo use)
-#include <algorithm>
 
 // los de manejo_arreglo
 #include <cstdlib> // Para rand() y srand() - Para system()
@@ -28,12 +26,6 @@ void imprimir_vector_entero(int vector[N]);
 void imprimir_matriz(int matriz[N][N]);
 void imprimir_grafo(int matriz[N][N], char vector[N]);
 
-// si es entero o nour ->(https://www.delftstack.com/es/howto/cpp/check-if-input-is-integer-cpp/)
-bool isNumber(const std::string& str) {
-  return !str.empty() && std::find_if(str.begin(), str.end(), [](unsigned char c) {
-    return !std::isdigit(c);
-  }) == str.end();
-}
 
 int main() {
 
@@ -46,6 +38,7 @@ int main() {
   for(int i = 0; i < 5; i++){
     for(int j = 0; j < 5; j++){
 
+      // si es el mismo nodo (ej: 'a' con 'a')
       if(i == j){
 
         char input_user;
@@ -63,6 +56,8 @@ int main() {
           matriz_ady[i][j] = 0;          
         }
       }else{
+        // comparaciòn con otros nodos
+
         char input_user;
         std::cout<<"¿Existe conexion entre los nodos ["<< nodos[i] <<"] y ["<< nodos[j] <<"]? [y/n]"<<std::endl;
         std::cin >> input_user; 
@@ -121,8 +116,8 @@ int main() {
   return 0;
 }
 
-// Funciones de ejemplo_matriz 
 //-------------------------------------------------------------------
+// Funciones de ejemplo_matriz 
 //-------------------------------------------------------------------
 
 // inicializa un vector. recibe el vector como un puntero.
