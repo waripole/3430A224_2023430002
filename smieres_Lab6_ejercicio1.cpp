@@ -1,15 +1,14 @@
 #include <iostream>
 #include <fstream>
-#include <cstdlib>    // Para system()
+#include <stdlib.h>   // ejemplo_matriz
 #include <cstring>    // Para manejo de cadenas
-#include <cmath> // para uso del floor()
-#include <algorithm> //net
+#include <cmath> // para uso del floor() (ya no lo use)
+#include <algorithm>
 
 // los de manejo_arreglo
-#include <cstdlib> // Para rand() y srand()
+#include <cstdlib> // Para rand() y srand() - Para system()
 #include <ctime>   // Para time()
  
-// hacer esste el del user
 // número de nodos en el grafo
 #define N 5  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -38,34 +37,54 @@ bool isNumber(const std::string& str) {
 
 int main() {
 
-  int nodos_user;
-  bool miau = true;
+  std::cout<<"[La matriz tiene un tamaño definido de 5x5, el usuario debe ingresar las conexiones entre los nodos/vertices]"<<std::endl;
 
-  while(true) {
-    std::cout << "Ingrese el numero de nodos (>= 2 / INT):" << std::endl;
-    std::string input_user;
-    std::cin >> input_user;
+  int matriz_ady[N][N];
 
-    if(isNumber(input_user)) {
-      // convertir a entero
-      nodos_user = std::stoi(input_user);
+  char nodos[] = {'a', 'b', 'c', 'd', 'e'};
 
-      if(nodos_user >= 2) {
-        std::cout << "[miau VALID]-> " << nodos_user << std::endl;
-        break;
-      }else {
-        std::cout << "No papu...no es valido" << std::endl;
+  for(int i = 0; i < 5; i++){
+    for(int j = 0; j < 5; j++){
+
+      if(i == j){
+
+        char input_user;
+        std::cout<<"¿Existe conexion entre el nodo [" << nodos[i] <<"] consigo mismo? [y/n]"<<std::endl;
+        std::cin >> input_user; 
+
+        if(input_user == 'y'){
+          int peso;
+          std::cout<<"Ingrese conexiòn entre el mesmo: "<<std::endl;
+          std::cin >> peso;
+
+          matriz_ady[i][j] = peso;    
+        }else{
+          // cuando no tiene conexiòn con el mismo-> 0
+          matriz_ady[i][j] = 0;          
+        }
+      }else{
+        char input_user;
+        std::cout<<"¿Existe conexion entre los nodos ["<< nodos[i] <<"] y ["<< nodos[j] <<"]? [y/n]"<<std::endl;
+        std::cin >> input_user; 
+
+        // si es que sì tiene conexiòn entonces:
+        if(input_user == 'y'){
+          int peso;
+          std::cout<<"Peso conexiòn entre los nodos ["<< nodos[i] <<"] y ["<< nodos[j] <<"]"<<std::endl;
+          std::cin >> peso;
+
+          matriz_ady[i][j] = peso;
+        }else{
+          // cuando no tiene conexiòn -> -1
+          matriz_ady[i][j] = -1;
+        }
       }
-    }else {
-      std::cout << "Ingrese un numero valido" << std::endl;
     }
   }
 
-  std::cout<<"miau nodos user -> "<< nodos_user <<std::endl;
 
   //---------------------------------
 
-  int N = nodos_user;
 
   char V[N], S[N], VS[N];
   // V -> nodos
@@ -75,14 +94,14 @@ int main() {
   int D[N];
   // D -> distancias mìnimas desde el nodo inicial
 
-  // Matriz de adyacencia representando los pesos entre nodos
+  // Matriz de adyacencia representando los pesos entre nodos - EJEMPLIÑO ANTES
+  /*
   int M[N][N] = {{ 0, 4, 11, -1, -1},
                  {-1, 0, -1,  6,  2},
                  {-1 ,3,  0,  6, -1},
                  {-1,-1, -1,  0, -1},
                  {-1,-1,  5,  3,  0}};
-
-
+*/
   
 
   // se inicializan llos vectores char con valores vacìos
@@ -92,13 +111,61 @@ int main() {
 
   leer_nodos(V);
 
-  aplicar_dijkstra(V, S, VS, D, M);
+  aplicar_dijkstra(V, S, VS, D, matriz_ady);
 
-  imprimir_grafo(M, V);
+  imprimir_grafo(matriz_ady, V);
+
+  //eee
+  imprimir_matriz(matriz_ady);
 
   return 0;
 }
 
+// Funciones de ejemplo_matriz 
+//-------------------------------------------------------------------
+//-------------------------------------------------------------------
+
+// inicializa un vector. recibe el vector como un puntero.
+void inicializar_vector_caracter (std::string *vector, int n) {
+  int col;
+
+  // recorre el vector.
+  for (col=0; col<n; col++) { 
+    vector[col] = ' ';
+  }
+}
+
+// imprime un vector. recibe el vector como un puntero.
+void imprimir_vector_caracter(std::string *vector, int n) {
+  std::cout << std::endl;
+  for (int i=0; i<n; i++) {
+    std::cout << "vector[" << i << "]: " << vector[i] << " ";
+  }
+  std::cout << std::endl;
+}
+
+// inicializa matriz nxn. recibe puntero a la matriz.
+void inicializar_matriz_enteros (int **matriz, int n) {
+  for (int fila=0; fila<n; fila++) {
+    for (int col=0; col<n; col++) {
+      matriz[fila][col] = -1;
+    }
+  }
+}
+
+// imprime matriz.
+void imprimir_matriz(int **matriz, int n) {
+  std::cout << std::endl;
+  for (int fila=0; fila<n; fila++) {
+    for (int col=0; col<n; col++) {
+      std::cout << matriz[fila][col] << " ";
+    }
+    std::cout << std::endl;
+  }
+}
+
+//-------------------------------------------------------------------
+//-------------------------------------------------------------------
 
 // inicializar D con los valores de la primera fila de la matriz
 // col -> como un contador o un 'i'
