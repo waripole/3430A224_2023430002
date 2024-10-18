@@ -6,7 +6,7 @@
 using namespace std;
 
 struct Node {
-    int info;
+    char info;
     Node* left;
     Node* right;
 };
@@ -39,7 +39,7 @@ private:
             node->right = insertNode(node->right, data);
         } else {
             // El dato ya está en el árbol
-            std::cout << "El nodo ya se encuentra en el árbol: " << data << std::endl;
+            //std::cout << "El nodo ya se encuentra en el árbol: " << data << std::endl;
         }
 
         return node;
@@ -126,23 +126,12 @@ Algoritmo de PRIM
 	L -> es la lista de aristas que se va formando con las aristas de menor costo que se van selecionando
 		 L al inicio es vacìa
 
-Pseudocòdigo profe:
-
-Mientras (V <> U) Repetir{
-	Elegir una arista (u,v) E A(G) tal que su costo sea mìnimo,
-	siendo u E U & v E (V-U)
-
-	Agregar la arista (u,v) a L
-	Agregar el nodo v a U
-}
-*/
 
 //---------------------------------------------------------------------------
 
 // funciòn para elegir una arista (u,v) E A(G) tal que su costo sea mìnimo
 // buscar un vèrtice que aùn no estè en el àrbol y del menor costo
 
-/*
 int costo[] -> arreglo que contiene los costos mìnimos
 bool U_nodos[] -> arreglo de bools que indica si un un vèrtice
 				està en el àrbol de costo mìnimo o no
@@ -197,8 +186,8 @@ void imprimirConexiones(int parent[], int** graph, int V, Arbol& arbol){
 	        //costo entre el nodo 'padre' y el nodo i
 	        std::cout << letters[parent[nodo_i]]<< " - " << letters[nodo_i] <<std::endl;
 	        //------------------------------------------------------
-	        arbol.insert(letters[nodo_i]); // Insertar el nodo en el árbol
-        	arbol.insert(letters[parent[nodo_i]]); // Insertar el padre de i
+	        arbol.insert(letters[nodo_i]); // insertar el nodo en el árbol
+        	arbol.insert(letters[parent[nodo_i]]); // insertar el padre de i
 	        
 	        //ok nome sirviò esto ok me rindo ok
 	        if(peso > 0){
@@ -239,6 +228,7 @@ void prim(int** graph, int V, Arbol& arbol){
   
     // primer nodo -> raiz del àrbol
     parent[0] = -1;
+ 
 
     // V -> nùmero de nodos/vèrtices
     for (int i = 0; i < V - 1; i++) {
@@ -281,7 +271,6 @@ int main(){
 	std::cout<<"numero de nodos user: "<<V<<std::endl;
 
 	char letters[V];
-
 
 	// Llenar el arreglo con letras de 'A' a 'F'
     for (int i = 0; i < V; ++i) {
