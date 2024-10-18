@@ -2,6 +2,120 @@
 #include <fstream>
 #include <climits>
 
+
+using namespace std;
+
+struct Node {
+    int info;
+    Node* left;
+    Node* right;
+};
+
+// Crear un nuevo nodo
+Node* createNode(char data) {
+    Node* newNode = new Node;
+    newNode->info = data;
+    newNode->left = nullptr;
+    newNode->right = nullptr;
+    return newNode;
+}
+
+class Arbol {
+private:
+    Node* root = nullptr;
+
+    // Método recursivo privado para insertar un nodo en el árbol binario de búsqueda
+    Node* insertNode(Node* node, char data) {
+        if (node == nullptr) {
+            // Crear un nuevo nodo si se encuentra una posición vacía
+            return createNode(data);
+        }
+
+        if (data < node->info) {
+            // Insertar en el subárbol izquierdo
+            node->left = insertNode(node->left, data);
+        } else if (data > node->info) {
+            // Insertar en el subárbol derecho
+            node->right = insertNode(node->right, data);
+        } else {
+            // El dato ya está en el árbol
+            std::cout << "El nodo ya se encuentra en el árbol: " << data << std::endl;
+        }
+
+        return node;
+    }
+
+
+    // Nodo más pequeño
+    Node* nodoPetit(Node* node) {
+        Node* actual = node;
+        while (actual && actual->left != nullptr) {
+            actual = actual->left;
+        }
+        return actual;
+    }
+
+
+public:
+    Arbol() : root(nullptr) {}
+
+    // Método público para insertar un nodo en el árbol
+    void insert(char data) {
+        root = insertNode(root, data);
+    }
+
+
+
+    // Método para recorrer el árbol y escribir en un archivo
+    void recorrer(Node* node, ofstream& fp) {
+        if (node != nullptr) {
+            if (node->left != nullptr) {
+                fp << node->info << "->" << node->left->info << ";" << endl;
+            } else {
+                string cadena = "null_" + to_string(node->info) + "i";
+                fp << cadena << "[shape=point];" << endl;
+                fp << node->info << "->" << cadena << ";" << endl;
+            }
+
+            if (node->right != nullptr) {
+                fp << node->info << "->" << node->right->info << ";" << endl;
+            } else {
+                string cadena = "null_" + to_string(node->info) + "d";
+                fp << cadena << "[shape=point];" << endl;
+                fp << node->info << "->" << cadena << ";" << endl;
+            }
+
+            recorrer(node->left, fp);
+            recorrer(node->right, fp);
+        }
+    }
+
+    // Generar y mostrar la visualización del árbol
+    void visualize() {
+        ofstream fp("grafo_2.txt");
+
+        if (!fp.is_open()) {
+            cerr << "Error al abrir el archivo grafo_2.txt" << endl;
+            return;
+        }
+
+        fp << "digraph G {" << endl;
+        fp << "node [style=filled fillcolor=green];" << endl;
+
+        recorrer(root, fp);
+
+        fp << "}" << endl;
+
+        fp.close();
+
+        // Generar y mostrar la imagen del árbol
+        system("dot -Tpng -o grafo_2.png grafo_2.txt");
+        system("eog grafo_2.png");
+    }
+};
+
+
+
 /*
 Algoritmo de PRIM
 	G -> gràfica G 
@@ -59,7 +173,7 @@ int costoMinimo(int costo[], bool U_nodos[], int V){
 
 // funciòn para imprimir el arbol construido a partir del grafo
 // parent[]-> representar a què nodo està conectado c/u nodo_i
-void imprimirConexiones(int parent[], int** graph, int V){
+void imprimirConexiones(int parent[], int** graph, int V, Arbol& arbol){
 
 	char letters[V];
 
@@ -82,6 +196,9 @@ void imprimirConexiones(int parent[], int** graph, int V){
 	        
 	        //costo entre el nodo 'padre' y el nodo i
 	        std::cout << letters[parent[nodo_i]]<< " - " << letters[nodo_i] <<std::endl;
+	        //------------------------------------------------------
+	        arbol.insert(letters[nodo_i]); // Insertar el nodo en el árbol
+        	arbol.insert(letters[parent[nodo_i]]); // Insertar el padre de i
 	        
 	        //ok nome sirviò esto ok me rindo ok
 	        if(peso > 0){
@@ -95,7 +212,7 @@ void imprimirConexiones(int parent[], int** graph, int V){
 //------------------------------------------------------------------------------------
 
 // PRIM 
-void prim(int** graph, int V){
+void prim(int** graph, int V, Arbol& arbol){
 
 	// arreglo para almacenar el arbol construido a partir del grafo y la implementaciòn del prim
     // almacena el ìndice del padre de cada nodo del novo arbol
@@ -145,11 +262,14 @@ void prim(int** graph, int V){
     }
 
     //felis jalowin
-    imprimirConexiones(parent, graph, V);
+    imprimirConexiones(parent, graph, V, arbol);
 }
 //------------------------------------------------------------------------------------
 
 int main(){
+
+	Arbol arbol; 
+
 	// pedir al user el N de nodos
 	int V = 0;
 	int input_user;
@@ -265,9 +385,10 @@ int main(){
 
 
 	//------------------------------------------- implementaciòn del prim
-	prim(matriz_ady, V);
-	//d espues generar el arbol kfkdslfjdsk
+	prim(matriz_ady, V, arbol);
 
+	//d espues generar el arbol kfkdslfjdsk
+	arbol.visualize();
 
 	return 0;
 }	
