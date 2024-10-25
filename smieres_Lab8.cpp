@@ -113,63 +113,77 @@ int main(){
 	int arr[SIZE_temp];
 
 	int SIZE;
-	std::cout<<"Ingrese el tamaño del arreglo (n<50): "<<std::endl;
-	std::cin>> SIZE;
 
-    // Inicializa la semilla para numeros aleatorios
-    srand(static_cast<unsigned int>(time(0)));
+	while(true){
 
-    // ------------------------------------------
-
-    // Llamar a la funcion para llenar el arreglo
-    llenarArreglo(arr, SIZE);
-
-    std::cout << "Arreglo de numeros enteros:\n";
-
-    // Llamar a la funcion para mostrar el arreglo
-    mostrarArreglo(arr, SIZE);
-	
-	std::cout << "\n";
-	//------------------------------------------------------------------
-
-    // INICIO EJECUCIÒN - Selecciòn
-    auto start = std::chrono::high_resolution_clock::now();
-    
-    // aki llamar a la funciòn
-    metodoSeleccion(arr, SIZE);
-    // imprimir el arr arreglado tmb
-
-    // FIN EJECUCIÒN - Selecciòn
-    auto end = std::chrono::high_resolution_clock::now();
-
-    // Calcular duraciòn
-    std::chrono::duration<double> duration = (end-start)*1000;
-    std::cout<<"Tiempo ejecucion metodo SELECCION: "<< duration.count() << " milisegundos\n"<<std::endl;
-
-	std::cout << "Arreglo ordenado \n";
-    mostrarArreglo(arr, SIZE);
-	std::cout << "\n";
-   //-------------------------------------------------------------------
-    
-	// INICIO EJECUCIÒN - QuickSort
-	auto start_2 = std::chrono::high_resolution_clock::now();
-
-	// aki llamar a la funciòn
-	int high = SIZE-1;
-	int low = 0;
-	quickSort(arr, low, high);
-	// imprimir el arr arreglado tmb
+		std::cout<<"Ingrese el tamaño del arreglo (n<100): "<<std::endl;
+		std::cin>> SIZE;
 
 
-	// FIN EJECUCIÒN - QuickSort
-	auto end_2 = std::chrono::high_resolution_clock::now();
+	    if (std::cin.fail() || SIZE > 50) {
+	        // limpìar las banderas de error
+	        std::cin.clear();
 
-	// Calcular duraciòn
-	std::chrono::duration<double> duration_2 = (end_2-start_2)*1000;
-	std::cout<<"Tiempo ejecucion metodo QUickSort: "<< duration_2.count() << " milisegundos\n"<<std::endl;
+	        // ignorar el resto de la entreada no validas
+	        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-	std::cout << "Arreglo ordenado \n";
-    mostrarArreglo(arr, SIZE);
-	
+	        std::cout << "Eleccion invalida. Porfavor ingrese otro valor.\n"<<std::endl;
+	    }else{
+
+		    // Inicializa la semilla para numeros aleatorios
+		    srand(static_cast<unsigned int>(time(0)));
+
+		    // ------------------------------------------
+
+		    // Llamar a la funcion para llenar el arreglo
+		    llenarArreglo(arr, SIZE);
+
+		    std::cout << "Arreglo de numeros enteros:\n";
+
+		    // Llamar a la funcion para mostrar el arreglo
+		    mostrarArreglo(arr, SIZE);
+			
+			std::cout << "\n";
+			//------------------------------------------------------------------
+
+		    // INICIO EJECUCIÒN - Selecciòn
+		    auto start = std::chrono::high_resolution_clock::now();
+		    
+		    // aki llamar a la funciòn
+		    metodoSeleccion(arr, SIZE);
+
+		    // FIN EJECUCIÒN - Selecciòn
+		    auto end = std::chrono::high_resolution_clock::now();
+
+		    // Calcular duraciòn
+		    std::chrono::duration<double> duration = (end-start)*1000;
+		    std::cout<<"Tiempo ejecucion metodo SELECCION: "<< duration.count() << " milisegundos\n"<<std::endl;
+
+			std::cout << "Arreglo ordenado \n";
+		    mostrarArreglo(arr, SIZE);
+			std::cout << "\n";
+		   //-------------------------------------------------------------------
+		    
+			// INICIO EJECUCIÒN - QuickSort
+			auto start_2 = std::chrono::high_resolution_clock::now();
+
+			// aki llamar a la funciòn
+			int high = SIZE-1;
+			int low = 0;
+			quickSort(arr, low, high);
+
+			// FIN EJECUCIÒN - QuickSort
+			auto end_2 = std::chrono::high_resolution_clock::now();
+
+			// Calcular duraciòn
+			std::chrono::duration<double> duration_2 = (end_2-start_2)*1000;
+			std::cout<<"Tiempo ejecucion metodo QUickSort: "<< duration_2.count() << " milisegundos\n"<<std::endl;
+
+			std::cout << "Arreglo ordenado \n";
+		    mostrarArreglo(arr, SIZE);
+		    break;
+	    }
+	}
+
 	return 0;
 }
