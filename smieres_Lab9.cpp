@@ -92,8 +92,12 @@ void encadenamiento(){
 
 }
 
-void hash(){
-
+// calcular hash con el mod
+int hash(int k, int SIZE){
+	//recorrer el arreglo y asignar un valor a c/u
+	int claveHash = (k % SIZE) + 1;
+	//std::cout<<"clave hash: "<< claveHash <<std::endl;
+	return claveHash;
 }
 
 int main(){
@@ -137,6 +141,21 @@ int main(){
 			std::cout << "\n";
 		    std::cout << "Arreglo ORDENADO:\n";
 		    mostrarArreglo(arr, SIZE);
+
+
+		    //----------------------- definir las claves Hash
+
+		    //arreglo para guardar las claves Hash, inicializamos los valores con 0
+		    int arr_claves_hash[15] = {0}; 
+
+		    for(int i = 0; i < SIZE; i++){
+		    	int clave = hash(arr[i], SIZE);
+		    	arr_claves_hash[i] = clave;
+		    	std::cout<<"valor k: "<<arr[i]<<"// clave hash: "<< clave <<std::endl;
+		    }
+
+		    std::cout << "Arregño valores hash (hasta 15 espacios): \n"<<std::endl;
+			mostrarArreglo(arr_claves_hash, SIZE);
 
 		    break;
 	    }
