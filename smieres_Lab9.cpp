@@ -157,6 +157,26 @@ int main(){
 		    std::cout << "Arregño valores hash (hasta 15 espacios): \n"<<std::endl;
 			mostrarArreglo(arr_claves_hash, SIZE);
 
+			// inicializar falso para encontrar colisiones
+			bool colision = false;
+
+			for(int i = 0; i < SIZE; i++){
+
+		    	//std::cout<<"// miau " << i <<std::endl;
+
+		    	for(int j = i + 1; j < SIZE; j++){
+		    		if(arr_claves_hash[i] == arr_claves_hash[j]){
+		    			colision = true;
+		    			std::cout<<"Colision entre: " << arr_claves_hash[i] << " y  " << arr_claves_hash[j] <<std::endl;
+		    		}
+		    	}
+		    }
+
+
+		    if(!colision){
+		    	std::cout<<"No hay colisiones !!!!" <<std::endl;
+		    }
+
 		    break;
 	    }
 	}
