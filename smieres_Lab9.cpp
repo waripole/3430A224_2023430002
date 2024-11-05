@@ -76,8 +76,41 @@ void quickSort(int arr[], int low, int high){
     }
 }
 
-void pruebaLineal(){
 
+// busca un lugar desocupado y lo ocupa XD
+void pruebaLineal(int arr[], int SIZE, int claveHash){
+	//recorrer el arreglo_claves_hash
+	//buscar uno vacìo (= 0)
+	//ubicar el colisionado ahì
+	// (k mod N) + 1
+
+	/*
+	int clave_lineal = claveHash +1;
+
+	for(int i = 0; i < SIZE; i++){
+		if(arr[i] == 0){
+			std::cout<<"Vuelta: "<< i << "// clave lienal-> " << clave_lineal<<std::endl;
+			arr[i] = clave_lineal;
+
+			std::cout<<"-> " << arr[i]<<std::endl;
+			
+			break;		
+		}else{
+			std::cout<<"lugar ocupao"<<std::endl;			
+		}
+		i++;
+    }
+	*/
+
+	// usar la claveHash como ìndice
+	int indice = claveHash;
+
+	while(arr[indice] != 0){
+		std::cout<<"lugar ocupao en: "<< indice <<std::endl;
+		indice = (indice + 1) % SIZE;
+	}
+
+	arr[indice] = claveHash;
 }
 
 void pruebaCuadratica(){
@@ -92,13 +125,35 @@ void encadenamiento(){
 
 }
 
+
 // calcular hash con el mod
 int hash(int k, int SIZE){
 	//recorrer el arreglo y asignar un valor a c/u
-	int claveHash = (k % SIZE) + 1;
+	int claveHash = (k % SIZE);
 	//std::cout<<"clave hash: "<< claveHash <<std::endl;
 	return claveHash;
 }
+
+// buscar colisiones 
+bool colision(int arr[], int SIZE){
+
+	// inicializar falso para encontrar colisiones
+	bool colision = false;
+
+	for(int i = 0; i < SIZE; i++){
+
+    	for(int j = i + 1; j < SIZE; j++){
+
+    		if(arr[i] == arr[j]){
+    			colision = true;
+    			std::cout<<"Colision entre: " << arr[i] << " y  " << arr[j] <<std::endl;
+    			return colision;
+    		}
+    	}
+    }
+    return colision;
+}
+
 
 int main(){
 
@@ -143,41 +198,47 @@ int main(){
 		    mostrarArreglo(arr, SIZE);
 
 
-		    //----------------------- definir las claves Hash
+		    //----------------------- definir las claves Hash ---------------------------------
 
 		    //arreglo para guardar las claves Hash, inicializamos los valores con 0
 		    int arr_claves_hash[15] = {0}; 
 
-		    for(int i = 0; i < SIZE; i++){
-		    	int clave = hash(arr[i], SIZE);
-		    	arr_claves_hash[i] = clave;
-		    	std::cout<<"valor k: "<<arr[i]<<"// clave hash: "<< clave <<std::endl;
-		    }
+            for(int i = 0; i < SIZE; i++){
+                int clave = hash(arr[i], 15);
+                if (arr_claves_hash[clave] == 0) { // Solo asignar si está vacío
+                    arr_claves_hash[clave] = arr[i];
+                    std::cout << "valor k: " << arr[i] << "// clave hash: " << clave << std::endl;
+                } else {
 
-		    std::cout << "Arregño valores hash (hasta 15 espacios): \n"<<std::endl;
-			mostrarArreglo(arr_claves_hash, SIZE);
-
-			// inicializar falso para encontrar colisiones
-			bool colision = false;
-
-			for(int i = 0; i < SIZE; i++){
-
-		    	//std::cout<<"// miau " << i <<std::endl;
-
-		    	for(int j = i + 1; j < SIZE; j++){
-		    		if(arr_claves_hash[i] == arr_claves_hash[j]){
-		    			colision = true;
-		    			std::cout<<"Colision entre: " << arr_claves_hash[i] << " y  " << arr_claves_hash[j] <<std::endl;
-		    		}
-		    	}
-		    }
+                	//oks aqui pedir que eliga que tipo de soluciòn le da a la colisiòn pero desde la terminal
+                
 
 
-		    if(!colision){
+
+
+                    std::cout << "Colision en idice " << clave << " para valor k: " << arr[i] << std::endl;
+                    
+                    // uso de PRUEBA LINEAL
+                    pruebaLineal(arr_claves_hash, 15, arr[i]);
+                }
+            }
+
+            std::cout << "Arreglo de valores hash (hasta 15 espacios): \n";
+            mostrarArreglo(arr_claves_hash, 15);
+            break;
+
+
+		    //---------------
+
+		    bool colision_ono = colision(arr_claves_hash, SIZE);
+
+		    if(!colision_ono){
 		    	std::cout<<"No hay colisiones !!!!" <<std::endl;
+		    }else{
+		    	std::cout<<"hayay colisiones " <<std::endl;
 		    }
 
-		    break;
+
 	    }
 	}
 
