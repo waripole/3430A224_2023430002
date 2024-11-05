@@ -127,8 +127,23 @@ void pruebaCuadratica(int arr[], int SIZE, int claveHash){
 	arr[indice] = claveHash;
 }
 
-void dobleHash(){
 
+void dobleHash(int arr[], int SIZE, int claveHash){
+	//generar otra clave a partir de la ya claveHash
+
+
+	int indice = claveHash % SIZE;
+
+	//((claveHash mod Size) + 1 ------ -1 para no salirse del size
+	int claveHash_ii = (claveHash % (SIZE-1)) + 1;
+
+	while(arr[indice] != 0){
+		std::cout<<"lugar ocupao en: "<< indice <<std::endl;
+
+		indice = ((indice + claveHash_ii) % SIZE);
+	}
+
+	arr[indice] = claveHash;
 }
 
 void encadenamiento(){
@@ -174,7 +189,7 @@ int main(){
 
 	while(true){
 
-		std::cout<<"Ingrese el tamaño del arreglo (n<10): "<<std::endl;
+		std::cout<<"Ingrese el tamaño del arreglo (n<25): "<<std::endl;
 		std::cin>> SIZE;
 		
 
@@ -254,19 +269,19 @@ int main(){
 			            }
 			            case 'D':{
 			                std::cout << "Opcion [3] - DOBLE DIRECCIÒN HASH\n";
-
+			                dobleHash(arr_claves_hash, 25, arr[i]);
 			                break;          
 			            }
 			            case 'E':{
 			                std::cout << "Opcion [4] - ENCADENAMIENTO\n";
-
+			                // hola
 			                break;           
 			            }
 			        }
                 }
             }
 			//---------------------------------------------------------------------------------------
-            std::cout << "Arreglo de valores hash (hasta 15 espacios): \n";
+            std::cout << "Arreglo de valores hash (hasta 25 espacios): \n";
             mostrarArreglo(arr_claves_hash, 25);
             break;
 
