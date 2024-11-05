@@ -113,8 +113,18 @@ void pruebaLineal(int arr[], int SIZE, int claveHash){
 	arr[indice] = claveHash;
 }
 
-void pruebaCuadratica(){
+// implementaciòn de prueba cuadràtica
+void pruebaCuadratica(int arr[], int SIZE, int claveHash){
+	int i = 0;
+	int indice = claveHash;
 
+	while(arr[indice] != 0){
+		std::cout<<"lugar ocupao en: "<< indice <<std::endl;
+		i++;
+		indice = (indice + i^2) % SIZE;
+	}
+
+	arr[indice] = claveHash;
 }
 
 void dobleHash(){
@@ -157,7 +167,7 @@ bool colision(int arr[], int SIZE){
 
 int main(){
 
-	const int SIZE_temp = 10; // tamaño predeterminado del arreglo
+	const int SIZE_temp = 25; // tamaño predeterminado del arreglo
 	int arr[SIZE_temp];
 
 	int SIZE;
@@ -166,9 +176,9 @@ int main(){
 
 		std::cout<<"Ingrese el tamaño del arreglo (n<10): "<<std::endl;
 		std::cin>> SIZE;
+		
 
-
-	    if (std::cin.fail() || SIZE > 10) {
+	    if (std::cin.fail() || SIZE > 25) {
 	        // limpìar las banderas de error
 	        std::cin.clear();
 
@@ -201,30 +211,63 @@ int main(){
 		    //----------------------- definir las claves Hash ---------------------------------
 
 		    //arreglo para guardar las claves Hash, inicializamos los valores con 0
-		    int arr_claves_hash[15] = {0}; 
+		    int arr_claves_hash[25] = {0}; 
 
             for(int i = 0; i < SIZE; i++){
-                int clave = hash(arr[i], 15);
-                if (arr_claves_hash[clave] == 0) { // Solo asignar si está vacío
+                int clave = hash(arr[i], SIZE);
+
+                if (arr_claves_hash[clave] == 0) { // solo se  asigna si está vacío
                     arr_claves_hash[clave] = arr[i];
                     std::cout << "valor k: " << arr[i] << "// clave hash: " << clave << std::endl;
                 } else {
 
+					std::cout << "Colision en idice " << clave << " para valor k: " << arr[i] << std::endl;
                 	//oks aqui pedir que eliga que tipo de soluciòn le da a la colisiòn pero desde la terminal
-                
+
+                	//---------------------------------------------------------------------------------------
+                	char opcion = '\0';
+
+				    while (true) {
+				        std::cout << "Ingrese su opcion: (L/C/D/E) \n";
+				        std::cin >> opcion;
+
+				        if(opcion == 'L'|| opcion == 'C' || opcion == 'D' || opcion == 'E'){
+				        	break;
+				        } else{
+				        	std::cout << "Eleccion invalida. Porfavor ingrese otra opcion.\n"<<std::endl;
+				        }
+				    }
 
 
+			    	switch (opcion) {
+			            case 'L':{
+			                std::cout << "Opcion [1] - PRUEBA LINEAL\n";
+		                    // uso de PRUEBA LINEAL
+		                    pruebaLineal(arr_claves_hash, 25, arr[i]);
+			                break;                
+			            }
+			            case 'C':{
+			                std::cout << "Opcion [2] - PRUEBA CUADRÀTICA\n";
+		                    // uso de PPRUEBA CUADRÀTICA
+		                    pruebaCuadratica(arr_claves_hash, 25, arr[i]);
+			                break;
+			            }
+			            case 'D':{
+			                std::cout << "Opcion [3] - DOBLE DIRECCIÒN HASH\n";
 
+			                break;          
+			            }
+			            case 'E':{
+			                std::cout << "Opcion [4] - ENCADENAMIENTO\n";
 
-                    std::cout << "Colision en idice " << clave << " para valor k: " << arr[i] << std::endl;
-                    
-                    // uso de PRUEBA LINEAL
-                    pruebaLineal(arr_claves_hash, 15, arr[i]);
+			                break;           
+			            }
+			        }
                 }
             }
-
+			//---------------------------------------------------------------------------------------
             std::cout << "Arreglo de valores hash (hasta 15 espacios): \n";
-            mostrarArreglo(arr_claves_hash, 15);
+            mostrarArreglo(arr_claves_hash, 25);
             break;
 
 
@@ -236,8 +279,7 @@ int main(){
 		    	std::cout<<"No hay colisiones !!!!" <<std::endl;
 		    }else{
 		    	std::cout<<"hayay colisiones " <<std::endl;
-		    }
-
+		    }                
 
 	    }
 	}
