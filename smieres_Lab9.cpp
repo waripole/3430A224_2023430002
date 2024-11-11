@@ -147,7 +147,7 @@ void dobleHash(int arr[], int SIZE, int claveHash){
 }
 
 void encadenamiento(){
-
+// sgy el profe dijo que este ñao ñao (?) idk
 }
 
 
@@ -180,7 +180,23 @@ bool colision(int arr[], int SIZE){
 }
 
 
-int main(){
+int main(int argc, char* argv[]){
+
+	// valida cantidad de parámetros mínimos.
+    if (argc<2) {
+        //cout << "Uso: \n./matriz n" << endl;
+    	std::cout<<"Uso: " << argv[0] << " [metodo para solucionar la colision (L/C/D)]\n" <<std::endl;
+        return -1;
+    }
+
+
+    // guardar el mètodo
+    char metodo = argv[1][0];
+
+    if(metodo != 'L' && metodo != 'C' && metodo != 'D'){
+    	std::cout<<"Metodo invalido ñao ñao \n" <<std::endl;
+    	return 1;
+    }
 
 	const int SIZE_temp = 25; // tamaño predeterminado del arreglo
 	int arr[SIZE_temp];
@@ -240,6 +256,7 @@ int main(){
                 	//oks aqui pedir que eliga que tipo de soluciòn le da a la colisiòn pero desde la terminal
 
                 	//---------------------------------------------------------------------------------------
+                	/*
                 	char opcion = '\0';
 
 				    while (true) {
@@ -252,9 +269,9 @@ int main(){
 				        	std::cout << "Eleccion invalida. Porfavor ingrese otra opcion.\n"<<std::endl;
 				        }
 				    }
+					*/
 
-
-			    	switch (opcion) {
+			    	switch (metodo) {
 			            case 'L':{
 			                std::cout << "Opcion [1] - PRUEBA LINEAL\n";
 		                    // uso de PRUEBA LINEAL
