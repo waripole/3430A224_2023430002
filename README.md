@@ -21,9 +21,9 @@ Para ejecutar el programa, ejecute el siguiente comando:
 ```
 
 En donde:
-*C1 **S.tex** corresponde a la secuencia 1 (o cadena 1)
-*C2 **T.tex** corresponde a la secuencia 2 (o cadena 2)
-*u **U.tex** corresponde a la matriz de coincidencia
+* C1 **S.tex** corresponde a la secuencia 1 (o cadena 1)
+* C2 **T.tex** corresponde a la secuencia 2 (o cadena 2)
+* u **U.tex** corresponde a la matriz de coincidencia
 * **V** n corresponde al valor de penalidad
 
 ## Ejemplo de salida
