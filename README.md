@@ -52,7 +52,7 @@ Para que el programa funcione correctamente, el archivo `U.tex` debe cumplir con
 * El archivo debe ser de tipo texto plano con extención `.tex`.
 * otra especificación...
 
-####s Contenido del Archivo
+#### Contenido del Archivo
 
 El contenido del archivo `U.tex` debe seguir el siguiente formato:
 
@@ -92,7 +92,7 @@ La terminal mostrará el siguiente alineamiento:
 
 Además, se crea un archivo **png** para la visualización de este
 <div align="center">
-  <img src="alineamiento.png" alt="Ejemplo de alineamiento" width="500" height="300"  />
+  <img src="alineamiento.png" alt="Ejemplo de alineamiento" width="600" height="300"  />
 </div>
 
 ###
