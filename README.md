@@ -68,9 +68,13 @@ La terminal mostrará el siguiente alineamiento:
 Además, se crea un archivo **png** para la visualización de este:
 ![This is an alt text.](/image/sample.webp "Alineamiento de secuencias.")
 
+<div align="center">
+  <img src="alineamiento.png" height="40" alt="Ejemplo de alineamiento"  />
+</div>
+
 ###
 
-<div align="left">
+<div align="center">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" height="40" alt="cplusplus logo"  />
 </div>
 
