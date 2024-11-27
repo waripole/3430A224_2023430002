@@ -101,3 +101,41 @@ Además, se crea un archivo **png** para la visualización de este
 </div>
 
 ###
+
+<table>
+  <tr>
+    <th></th>
+    <th style="background-color:green;color:white;">A</th>
+    <th style="background-color:yellow;color:black;">G</th>
+    <th style="background-color:blue;color:white;">C</th>
+    <th style="background-color:red;color:white;">T</th>
+  </tr>
+  <tr>
+    <th style="background-color:green;color:white;">A</th>
+    <td>2</td>
+    <td>-1</td>
+    <td>-1</td>
+    <td>-1</td>
+  </tr>
+  <tr>
+    <th style="background-color:yellow;color:black;">G</th>
+    <td>-1</td>
+    <td>2</td>
+    <td>-1</td>
+    <td>-1</td>
+  </tr>
+  <tr>
+    <th style="background-color:blue;color:white;">C</th>
+    <td>-1</td>
+    <td>-1</td>
+    <td>2</td>
+    <td>-1</td>
+  </tr>
+  <tr>
+    <th style="background-color:red;color:white;">T</th>
+    <td>-1</td>
+    <td>-1</td>
+    <td>-1</td>
+    <td>2</td>
+  </tr>
+</table>
