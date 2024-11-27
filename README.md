@@ -143,7 +143,7 @@ En donde las **líneas**:
 * **Color rojo** indican un *mismatch*.
 * **Punteadas** indican la presencia de un *gap*.
 
-Las bases están representadas por los siguientes colores asignados a los **bordes**:
+Los **bordes** tienen asignados los siguientes colores que representan las bases::
 * **A** *(adenina)* color **VERDE**.
 * **C** *(citosina)* color **AZUL**.
 * **G** *(guanina)* color **AMARILLO**.
