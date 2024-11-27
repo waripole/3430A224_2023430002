@@ -101,7 +101,7 @@ Además, se crea un archivo **png** para la visualización de este
 </div>
 
 ###
-<div style="text-align: center;">
+<div align="center">
   <table>
     <tr>
       <th></th>
