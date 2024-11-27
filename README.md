@@ -99,6 +99,12 @@ En donde las líneas:
 * **Color rojo** indican un *mismatch*.
 * **Punteadas** indican la presencia de un *gap*.
 
+Las bases están representadas por los siguientes colores:
+* **A** *(adenina)* color **VERDE**.
+* **C** *(citosina)* color **AZUL**.
+* **G** *(guanina)* color **AMARILLO**.
+* **T** *(timina)* color **ROJO COMUNISTA**.
+
 ###
 <div align="center">
   <table>
