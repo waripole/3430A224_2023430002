@@ -101,14 +101,14 @@ El contenido del archivo `U.tex` debe seguir el siguiente formato:
 
 Ejemplo válido:
 
+En la matriz, la intersección de dos letras (`matriz[i][j]`) indica el valor de coincidencia entre ambas.
+
 ```bash
     2,-1,-1,-1,
     -1,2,-1,-1,
     -1,-1,2,-1,
     -1,-1,-1,2,
 ```
-
-En la matriz, la intersección de dos letras (`matriz[i][j]`) indica el valor de coincidencia entre ambas.
 
 ### Ubicación
 
