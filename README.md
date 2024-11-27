@@ -56,54 +56,7 @@ Para que el programa funcione correctamente, el archivo `U.tex` debe cumplir con
 
 El contenido del archivo `U.tex` debe seguir el siguiente formato:
 
-* blabla
-
-Ejemplo válido:
-
-```bash
-    2,-1,-1,-1,
-    -1,2,-1,-1,
-    -1,-1,2,-1,
-    -1,-1,-1,2,
-```
-
-### Ubicación
-
-* Asegúrese de que los archivos estén en el directorio especificado para la ejecución del programa.
-
-Si no se cumple este formato, el programa podría generar errores.
-
-
-## Ejemplo de salida
-
-Con un valor de penalida igual a **0** y comparando las secuencias:
-* C1 **GGTACTA**
-* C2 **TACTAGG**
-
-La terminal mostrará el siguiente alineamiento:
-
-```bash
-    C1 | GGTACTA--
-    C2 | T--ACTAGG
-```
-
-
-
-Además, se crea un archivo **png** para la visualización de este
-<div align="center">
-  <img src="alineamiento.png" alt="Ejemplo de alineamiento" width="600" height="150"  />
-</div>
-
-En donde las líneas:
-* **Color verde** indican un *match*.
-* **Color rojo** indican un *mismatch*.
-* **Punteadas** indican la presencia de un *gap*.
-
-Las bases están representadas por los siguientes colores:
-* **A** *(adenina)* color **VERDE**.
-* **C** *(citosina)* color **AZUL**.
-* **G** *(guanina)* color **AMARILLO**.
-* **T** *(timina)* color **ROJO COMUNISTA**.
+* Considerando el siguiente alfabeto A = {'A', 'C', 'G', 'T'} y la siguiente función U de coincidencia de las letras del alfabeto:
 
 ###
 <div align="center">
@@ -145,6 +98,56 @@ Las bases están representadas por los siguientes colores:
     </tr>
   </table>
 </div>
+
+Ejemplo válido:
+
+```bash
+    2,-1,-1,-1,
+    -1,2,-1,-1,
+    -1,-1,2,-1,
+    -1,-1,-1,2,
+```
+
+
+### Ubicación
+
+* Asegúrese de que los archivos estén en el directorio especificado para la ejecución del programa.
+
+Si no se cumple este formato, el programa podría generar errores.
+
+
+## Ejemplo de salida
+
+Con un valor de penalida igual a **0** y comparando las secuencias:
+* C1 **GGTACTA**
+* C2 **TACTAGG**
+
+La terminal mostrará el siguiente alineamiento:
+
+```bash
+    C1 | GGTACTA--
+    C2 | T--ACTAGG
+```
+
+
+
+Además, se crea un archivo **png** para la visualización de este
+<div align="center">
+  <img src="alineamiento.png" alt="Ejemplo de alineamiento" width="600" height="150"  />
+</div>
+
+En donde las líneas:
+* **Color verde** indican un *match*.
+* **Color rojo** indican un *mismatch*.
+* **Punteadas** indican la presencia de un *gap*.
+
+Las bases están representadas por los siguientes colores:
+* **A** *(adenina)* color **VERDE**.
+* **C** *(citosina)* color **AZUL**.
+* **G** *(guanina)* color **AMARILLO**.
+* **T** *(timina)* color **ROJO COMUNISTA**.
+
+
 
 ###
 
