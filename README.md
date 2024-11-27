@@ -54,6 +54,17 @@ Para que el programa funcione correctamente, el archivo `U.tex` debe cumplir con
 
 #### Contenido del Archivo
 
+Ejemplo válido:
+
+En la matriz, la intersección de dos letras (`matriz[i][j]`) indica el valor de coincidencia entre ambas.
+
+```bash
+    2,-1,-1,-1,
+    -1,2,-1,-1,
+    -1,-1,2,-1,
+    -1,-1,-1,2,
+```
+
 El contenido del archivo `U.tex` debe seguir el siguiente formato:
 
 * Considerando el siguiente alfabeto `A = {'A', 'C', 'G', 'T'}` y la siguiente función U de coincidencia de las letras del alfabeto:
@@ -99,16 +110,6 @@ El contenido del archivo `U.tex` debe seguir el siguiente formato:
   </table>
 </div>
 
-Ejemplo válido:
-
-En la matriz, la intersección de dos letras (`matriz[i][j]`) indica el valor de coincidencia entre ambas.
-
-```bash
-    2,-1,-1,-1,
-    -1,2,-1,-1,
-    -1,-1,2,-1,
-    -1,-1,-1,2,
-```
 
 ### Ubicación
 
