@@ -58,8 +58,6 @@ El contenido del archivo `U.tex` debe seguir el siguiente formato:
 
 * Considerando el siguiente alfabeto `A = {'A', 'C', 'G', 'T'}` y la siguiente función U de coincidencia de las letras del alfabeto:
 
-En la matriz, la intersección de dos letras (`matriz[i][j]`) indica el valor de coincidencia entre ambas.
-
 ###
 <div align="center">
   <table>
@@ -110,6 +108,7 @@ Ejemplo válido:
     -1,-1,-1,2,
 ```
 
+En la matriz, la intersección de dos letras (`matriz[i][j]`) indica el valor de coincidencia entre ambas.
 
 ### Ubicación
 
@@ -133,7 +132,7 @@ La terminal mostrará el siguiente alineamiento:
 
 
 
-Además, se crea un archivo **png** para la visualización de este
+Además, se crea un archivo **png** para la visualización de este:
 <div align="center">
   <img src="alineamiento.png" alt="Ejemplo de alineamiento" width="600" height="150"  />
 </div>
@@ -148,7 +147,6 @@ Las bases están representadas por los siguientes colores:
 * **C** *(citosina)* color **AZUL**.
 * **G** *(guanina)* color **AMARILLO**.
 * **T** *(timina)* color **ROJO**.
-
 
 
 ###
