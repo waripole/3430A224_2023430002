@@ -58,7 +58,7 @@ El contenido del archivo `U.tex` debe seguir el siguiente formato:
 
 * Considerando el siguiente alfabeto `A = {'A', 'C', 'G', 'T'}` y la siguiente función U de coincidencia de las letras del alfabeto:
 
-En la matriz, la intersección de dos letras (matriz[i][j]) indica el valor de coincidencia entre ambas
+En la matriz, la intersección de dos letras (`matriz[i][j]`) indica el valor de coincidencia entre ambas.
 
 ###
 <div align="center">
@@ -66,8 +66,8 @@ En la matriz, la intersección de dos letras (matriz[i][j]) indica el valor de c
     <tr>
       <th></th>
       <th><span style=background-color:green;color:white;padding:5px>A</span></th>
-      <th><span style="background-color:yellow;color:black;padding:5px;">G</span></th>
-      <th><span style="background-color:blue;color:white;padding:5px;">C</span></th>
+      <th><span style="background-color:yellow;color:black;padding:5px;">C</span></th>
+      <th><span style="background-color:blue;color:white;padding:5px;">G</span></th>
       <th><span style="background-color:red;color:white;padding:5px;">T</span></th>
     </tr>
     <tr>
@@ -78,14 +78,14 @@ En la matriz, la intersección de dos letras (matriz[i][j]) indica el valor de c
       <td>-1</td>
     </tr>
     <tr>
-      <th><span style="background-color:yellow;color:black;padding:5px;">G</span></th>
+      <th><span style="background-color:yellow;color:black;padding:5px;">C</span></th>
       <td>-1</td>
       <td>2</td>
       <td>-1</td>
       <td>-1</td>
     </tr>
     <tr>
-      <th><span style="background-color:blue;color:white;padding:5px;">C</span></th>
+      <th><span style="background-color:blue;color:white;padding:5px;">G</span></th>
       <td>-1</td>
       <td>-1</td>
       <td>2</td>
