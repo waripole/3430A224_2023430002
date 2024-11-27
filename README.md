@@ -105,34 +105,34 @@ Además, se crea un archivo **png** para la visualización de este
   <table>
     <tr>
       <th></th>
-      <th style="background-color:green;color:white;">A</th>
-      <th style="background-color:yellow;color:black;">G</th>
-      <th style="background-color:blue;color:white;">C</th>
-      <th style="background-color:red;color:white;">T</th>
+      <th><span style="background-color:green;color:white;padding:5px;">A</span></th>
+      <th><span style="background-color:yellow;color:black;padding:5px;">G</span></th>
+      <th><span style="background-color:blue;color:white;padding:5px;">C</span></th>
+      <th><span style="background-color:red;color:white;padding:5px;">T</span></th>
     </tr>
     <tr>
-      <th style="background-color:green;color:white;">A</th>
+      <th><span style="background-color:green;color:white;padding:5px;">A</span></th>
       <td>2</td>
       <td>-1</td>
       <td>-1</td>
       <td>-1</td>
     </tr>
     <tr>
-      <th style="background-color:yellow;color:black;">G</th>
+      <th><span style="background-color:yellow;color:black;padding:5px;">G</span></th>
       <td>-1</td>
       <td>2</td>
       <td>-1</td>
       <td>-1</td>
     </tr>
     <tr>
-      <th style="background-color:blue;color:white;">C</th>
+      <th><span style="background-color:blue;color:white;padding:5px;">C</span></th>
       <td>-1</td>
       <td>-1</td>
       <td>2</td>
       <td>-1</td>
     </tr>
     <tr>
-      <th style="background-color:red;color:white;">T</th>
+      <th><span style="background-color:red;color:white;padding:5px;">T</span></th>
       <td>-1</td>
       <td>-1</td>
       <td>-1</td>
