@@ -56,7 +56,7 @@ Para que el programa funcione correctamente, el archivo `U.tex` debe cumplir con
 
 El contenido del archivo `U.tex` debe seguir el siguiente formato:
 
-* Considerando el siguiente alfabeto A = {'A', 'C', 'G', 'T'} y la siguiente función U de coincidencia de las letras del alfabeto:
+* Considerando el siguiente alfabeto `A = {'A', 'C', 'G', 'T'}` y la siguiente función U de coincidencia de las letras del alfabeto:
 
 ###
 <div align="center">
