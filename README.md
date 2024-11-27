@@ -74,27 +74,11 @@ Ejemplo válido:
 Si no se cumple este formato, el programa podría generar errores.
 
 
-
-
-
 ## Ejemplo de salida
 
 Con un valor de penalida igual a **0** y comparando las secuencias:
 * C1 **GGTACTA**
 * C2 **TACTAGG**
-
-La terminal mostrará la siguiente matriz de alineamiento:
-
-```bash
-    0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 0, 0, 0, 2, 2,
-    0, 0, 0, 0, 0, 0, 2, 4,
-    0, 2, 2, 2, 2, 2, 2, 4,
-    0, 2, 4, 4, 4, 4, 4, 4,
-    0, 2, 4, 6, 6, 6, 6, 6,
-    0, 2, 4, 6, 8, 8, 8, 8,
-    0, 2, 4, 6, 8, 10, 10, 10,
-```
 
 La terminal mostrará el siguiente alineamiento:
 
@@ -107,7 +91,7 @@ La terminal mostrará el siguiente alineamiento:
 
 Además, se crea un archivo **png** para la visualización de este
 <div align="center">
-  <img src="alineamiento.png" alt="Ejemplo de alineamiento" width="600" height="200"  />
+  <img src="alineamiento.png" alt="Ejemplo de alineamiento" width="600" height="150"  />
 </div>
 
 ###
