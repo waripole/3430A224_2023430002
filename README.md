@@ -137,16 +137,18 @@ Además, se crea un archivo **png** para la visualización de este
 </div>
 
 En donde las líneas:
+
 * **Color verde** indican un *match*.
 * **Color rojo** indican un *mismatch*.
 * **Punteadas** indican la presencia de un *gap*.
 
+```diff
 Las bases están representadas por los siguientes colores:
-* **A** *(adenina)* color **VERDE**.
-* **C** *(citosina)* color **AZUL**.
++ * **A** *(adenina)* color **VERDE**.
+! * **C** *(citosina)* color **AZUL**.
 * **G** *(guanina)* color **AMARILLO**.
-* **T** *(timina)* color **ROJO COMUNISTA**.
-
+- * **T** *(timina)* color **ROJO COMUNISTA**.
+```
 
 
 ###
