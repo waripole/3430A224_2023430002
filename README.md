@@ -58,6 +58,8 @@ El contenido del archivo `U.tex` debe seguir el siguiente formato:
 
 * Considerando el siguiente alfabeto `A = {'A', 'C', 'G', 'T'}` y la siguiente función U de coincidencia de las letras del alfabeto:
 
+En la matriz, la intersección de dos letras (matriz[i][j]) indica el valor de coincidencia entre ambas
+
 ###
 <div align="center">
   <table>
@@ -145,7 +147,7 @@ Las bases están representadas por los siguientes colores:
 * **A** *(adenina)* color **VERDE**.
 * **C** *(citosina)* color **AZUL**.
 * **G** *(guanina)* color **AMARILLO**.
-* **T** *(timina)* color **ROJO COMUNISTA**.
+* **T** *(timina)* color **ROJO**.
 
 
 
