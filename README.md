@@ -138,12 +138,12 @@ Además, se crea un archivo **png** para la visualización de este:
   <img src="alineamiento.png" alt="Ejemplo de alineamiento" width="600" height="150"  />
 </div>
 
-En donde las líneas:
+En donde las **líneas**:
 * **Color verde** indican un *match*.
 * **Color rojo** indican un *mismatch*.
 * **Punteadas** indican la presencia de un *gap*.
 
-Las bases están representadas por los siguientes colores:
+Las bases están representadas por los siguientes colores asignados a los **bordes**:
 * **A** *(adenina)* color **VERDE**.
 * **C** *(citosina)* color **AZUL**.
 * **G** *(guanina)* color **AMARILLO**.
