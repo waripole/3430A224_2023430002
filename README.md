@@ -65,11 +65,9 @@ La terminal mostrará el siguiente alineamiento:
     C2 | AC-CTT-
 ```
 
-Además, se crea un archivo **png** para la visualización de este:
-![This is an alt text.](/image/sample.webp "Alineamiento de secuencias.")
-
+Además, se crea un archivo **png** para la visualización de este
 <div align="center">
-  <img src="alineamiento.png" height="40" alt="Ejemplo de alineamiento"  />
+  <img src="alineamiento.png" alt="Ejemplo de alineamiento" width="500" height="300"  />
 </div>
 
 ###
