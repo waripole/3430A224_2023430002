@@ -94,18 +94,17 @@ Además, se crea un archivo **png** para la visualización de este
   <img src="alineamiento.png" alt="Ejemplo de alineamiento" width="600" height="150"  />
 </div>
 
-###
-
-<div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" height="40" alt="cplusplus logo"  />
-</div>
+En donde las líneas:
+* **Color verde** indican un *match*.
+* **Color rojo** indican un *mismatch*.
+* **Punteadas** indican la presencia de un *gap*.
 
 ###
 <div align="center">
   <table>
     <tr>
       <th></th>
-      <th><span style="background-color:green;color:white;padding:5px;">A</span></th>
+      <th><span style=background-color:green;color:white;padding:5px>A</span></th>
       <th><span style="background-color:yellow;color:black;padding:5px;">G</span></th>
       <th><span style="background-color:blue;color:white;padding:5px;">C</span></th>
       <th><span style="background-color:red;color:white;padding:5px;">T</span></th>
@@ -139,4 +138,10 @@ Además, se crea un archivo **png** para la visualización de este
       <td>2</td>
     </tr>
   </table>
+</div>
+
+###
+
+<div align="center">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" height="40" alt="cplusplus logo"  />
 </div>
