@@ -21,10 +21,36 @@ Para ejecutar el programa, ejecute el siguiente comando:
 ```
 
 En donde:
-* C1 **S.tex** corresponde a la secuencia 1 (o cadena 1)
-* C2 **T.tex** corresponde a la secuencia 2 (o cadena 2)
-* u **U.tex** corresponde a la matriz de coincidencia
-* **V** n corresponde al valor de penalidad
+* -C1 **S.tex** corresponde a la secuencia 1 (o cadena 1)
+* -C2 **T.tex** corresponde a la secuencia 2 (o cadena 2)
+* -u **U.tex** corresponde a la matriz de coincidencia
+* -V **n** corresponde al valor de penalidad
+
+## Especificaciones
+
+### Formato de los Archivos de Entrada (S.tex y T.tex)
+
+Para que el programa funcione correctamente, los archivos `S.tex` y `T.tex` deben cumplir con las siguientes condiciones:
+
+* Los archivos deben ser de tipo texto plano con extención `.tex`.
+* Deben contener **unicamente** la secuencia biológica en el siguiente formato.
+
+### Contenido del Archivo
+
+* Cada archivo debe incluir **una única línea** con la secuencia de nucleótidos.
+* La secuencia debe estar en formato **estrictamente lineal**, sin espacios ni caracteres adicionales.
+
+Ejemplo válido:
+
+```bash
+    AGCTTC
+```
+
+### Ubicación
+
+* Asegúrese de que los archivos estén en el directorio especificado para la ejecución del programa.
+
+Si no se cumple este formato, el programa podría generar errores.
 
 ## Ejemplo de salida
 
