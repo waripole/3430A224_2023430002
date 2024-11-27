@@ -35,7 +35,7 @@ Para que el programa funcione correctamente, los archivos `S.tex` y `T.tex` debe
 * Los archivos deben ser de tipo texto plano con extención `.tex`.
 * Deben contener **unicamente** la secuencia biológica en el siguiente formato.
 
-### Contenido del Archivo
+#### Contenido del Archivo
 
 * Cada archivo debe incluir **una única línea** con la secuencia de nucleótidos.
 * La secuencia debe estar en formato **estrictamente lineal**, sin espacios ni caracteres adicionales.
@@ -47,7 +47,14 @@ Ejemplo válido:
 ```
 
 ### Formato del archivo U.tex
-La matriz del archivo `U.tex` debe seguir el siguiente formato:
+Para que el programa funcione correctamente, el archivo `U.tex` debe cumplir con las siguientes condiciones:
+
+* El archivo debe ser de tipo texto plano con extención `.tex`.
+* otra especificación...
+
+####s Contenido del Archivo
+
+El contenido del archivo `U.tex` debe seguir el siguiente formato:
 
 * blabla
 
