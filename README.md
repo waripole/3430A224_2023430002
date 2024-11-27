@@ -21,10 +21,26 @@ Para ejecutar el programa, ejecute el siguiente comando:
 ```
 
 En donde:
-    *C1 **S.tex** corresponde a la secuencia 1 (o cadena 1)
-    *C2 **T.tex** corresponde a la secuencia 2 (o cadena 2)
-    *u **U.tex** corresponde a la matriz de coincidencia
-    * **V** n corresponde al valor de penalidad
+*C1 **S.tex** corresponde a la secuencia 1 (o cadena 1)
+*C2 **T.tex** corresponde a la secuencia 2 (o cadena 2)
+*u **U.tex** corresponde a la matriz de coincidencia
+* **V** n corresponde al valor de penalidad
+
+## Ejemplo de salida
+
+Con un valor de penalida igual a **0** y comparando las secuencias:
+* C1 **AGCTTC**
+* C2 **ACCTT**
+
+La terminal mostrará el siguiente alineamiento:
+
+```bash
+    C1 | AGCT-TC
+    C2 | AC-CTT-
+```
+
+Además, se crea un archivo **png** para la visualización de este:
+![This is an alt text.](/image/sample.webp "Alineamiento de secuencias.")
 
 ###
 
