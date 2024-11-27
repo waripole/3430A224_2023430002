@@ -26,9 +26,9 @@ En donde:
 * -u **U.tex** corresponde a la matriz de coincidencia
 * -V **n** corresponde al valor de penalidad
 
-## Especificaciones
+## Especificaciones para los Archivos de Entrada
 
-### Formato de los Archivos de Entrada (S.tex y T.tex)
+### Formato de los Archivos S.tex y T.tex
 
 Para que el programa funcione correctamente, los archivos `S.tex` y `T.tex` deben cumplir con las siguientes condiciones:
 
@@ -46,11 +46,29 @@ Ejemplo válido:
     AGCTTC
 ```
 
+### Formato del archivo U.tex
+La matriz del archivo `U.tex` debe seguir el siguiente formato:
+
+* blabla
+
+Ejemplo válido:
+
+```bash
+    2,-1,-1,-1,
+    -1,2,-1,-1,
+    -1,-1,2,-1,
+    -1,-1,-1,2,
+```
+
 ### Ubicación
 
 * Asegúrese de que los archivos estén en el directorio especificado para la ejecución del programa.
 
 Si no se cumple este formato, el programa podría generar errores.
+
+
+
+
 
 ## Ejemplo de salida
 
