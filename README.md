@@ -154,3 +154,13 @@ Las bases están representadas por los siguientes colores:
 <div align="center">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" height="40" alt="cplusplus logo"  />
 </div>
+
+
+###
+```diff
+- pan con queso 
++ text in green
+! text in orange
+# text in gray
+@@ text in purple (and bold)@@
+```
